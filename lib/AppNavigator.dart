@@ -2,7 +2,7 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pipe_lisboa/ui/BaseScreen.dart';
+import 'package:pipe_lisboa/ui/base/Screen.dart';
 
 class AppNavigator {
   void addScreen(BuildContext context, Screen newScreen) {
