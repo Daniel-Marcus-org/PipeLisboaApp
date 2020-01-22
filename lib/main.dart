@@ -1,8 +1,22 @@
+import 'dart:io' show Platform;
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(PipeLisboaApp());
 
-class MyApp extends StatelessWidget {
+class PipeLisboaApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    if (Platform.isAndroid) {
+      return AndroidApp();
+    } else {
+      return IosApp();
+    }
+  }
+}
+
+class AndroidApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -10,6 +24,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class IosApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoApp(
+      title: 'Flutter Demo',
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
