@@ -2,6 +2,7 @@ import 'dart:io' show Platform;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pipe_lisboa/ui/base/BottomBarScreen.dart';
 
 void main() => runApp(PipeLisboaApp());
 
@@ -21,10 +22,11 @@ class AndroidApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: BottomBarScreen(),
     );
   }
 }
@@ -33,6 +35,7 @@ class IosApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
