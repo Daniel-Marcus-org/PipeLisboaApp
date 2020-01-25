@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:pipe_lisboa/presenters/interfaces/Presenter.dart';
-import 'package:pipe_lisboa/presenters/interfaces/PresenterListener.dart';
+import 'package:pipe_lisboa/presenters/interfaces/base/Presenter.dart';
+import 'package:pipe_lisboa/presenters/interfaces/base/PresenterListener.dart';
 
 class BasePresenter<L extends PresenterListener> implements Presenter<L> {
   @protected
