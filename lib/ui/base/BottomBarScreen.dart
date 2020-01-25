@@ -23,12 +23,12 @@ class _BottomBarScreenState extends ScreenState<BottomBarScreen> {
   @override
   Widget buildWidget() {
     return Scaffold(
-        appBar: AppBar(title: bottomItems[_selectedIndex].title),
+        appBar: AppBar(title: _bottomItems[_selectedIndex].title),
         body: Center(
           child: _pages.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: BottomNavigationBar(
-            items: bottomItems,
+            items: _bottomItems,
             onTap: _onItemTapped,
             currentIndex: _selectedIndex));
   }
@@ -39,7 +39,7 @@ class _BottomBarScreenState extends ScreenState<BottomBarScreen> {
     });
   }
 
-  static const List<BottomNavigationBarItem> bottomItems = [
+  static const List<BottomNavigationBarItem> _bottomItems = [
     BottomNavigationBarItem(
       icon: Icon(Icons.home),
       title: Text('Home'),
