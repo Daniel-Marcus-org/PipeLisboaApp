@@ -55,7 +55,11 @@ abstract class PresentableScreenState<SC extends Screen,
     var errorLayout = Container(child: Text("ERROR"));
     switch (_status) {
       case _ScreenStatus.SCREEN:
-        return SafeArea(child: buildScreenWidget());
+        return SafeArea(
+            child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal :8.0),
+          child: buildScreenWidget(),
+        ));
       case _ScreenStatus.LOADING:
         return SafeArea(child: loaderLayout);
       case _ScreenStatus.ERROR:

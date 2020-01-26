@@ -25,10 +25,25 @@ class _CartScreenState extends PresentableScreenState<CartScreen, CartPresenter>
   Widget buildScreenWidget() {
     var products = _cart.products;
     return ListView.builder(
-        itemCount: products.length,
-        itemBuilder: (context, index) {
-          return buildViewHolder(products[index]);
-        });
+      shrinkWrap: true,
+      physics: ClampingScrollPhysics(),
+      itemBuilder: (context, index) {
+        if (index == 0) {
+          return Card(
+            child: ListView.builder(
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+                itemCount: products.length,
+                itemBuilder: (context, index) {
+                  return buildViewHolder(products[index]);
+                }),
+          );
+        } else {
+          return Card(child: buildCheckOutViewHolder());
+        }
+      },
+      itemCount: 2,
+    );
   }
 
   @override
@@ -44,10 +59,15 @@ class _CartScreenState extends PresentableScreenState<CartScreen, CartPresenter>
   }
 
   Widget buildViewHolder(CartProduct product) {
-    return Card(
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Row(
         children: <Widget>[
-          Image.network(""),
+          Image.network(
+            product.product.images.first,
+            width: 100,
+            height: 100,
+          ),
           Column(
             children: <Widget>[
               Text(product.product.name),
@@ -60,6 +80,16 @@ class _CartScreenState extends PresentableScreenState<CartScreen, CartPresenter>
             ],
           )
         ],
+      ),
+    );
+  }
+
+  Widget buildCheckOutViewHolder() {
+    return SizedBox(
+      width: 300,
+      height: 300,
+      child: Container(
+        color: Colors.blue,
       ),
     );
   }
